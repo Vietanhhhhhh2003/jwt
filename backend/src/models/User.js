@@ -1,44 +1,43 @@
-import e from "express";
 import mongoose from "mongoose";
 
 const userSchema = new mongoose.Schema(
   {
     username: {
       type: String,
-      require: true,
+      required: true,
       unique: true,
       trim: true,
       lowercase: true,
     },
     hashedPassword: {
       type: String,
-      require: true,
+      required: true,
     },
     email: {
       type: String,
-      require: true,
+      required: true,
       unique: true,
-      trim: true,
       lowercase: true,
+      trim: true,
     },
     displayName: {
       type: String,
+      required: true,
       trim: true,
-      require: true,
     },
     avatarUrl: {
-      type: String,
+      type: String, // link CDN để hiển thị hình
     },
     avatarId: {
-      type: String,
+      type: String, // Cloudinary public_id để xoá hình
     },
     bio: {
       type: String,
-      maxlength: 500,
+      maxlength: 500, // tuỳ
     },
     phone: {
       type: String,
-      sparse: true,
+      sparse: true, // cho phép null, nhưng không được trùng
     },
   },
   {
